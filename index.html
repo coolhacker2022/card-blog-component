@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/css/variables.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,161 +14,22 @@
 
   <title>Frontend Mentor | Blog preview card</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    :root {
-      --color-yellow: hsl(47, 88%, 63%);
-      --color-white: hsl(47, 0%, 100%);
-      --color-gray-500: hsl(0, 0%, 42%);
-      --color-gray-950: hsl(0, 0%, 7%);
-      --font-normal: 500;
-      --font-bold: 800;
-      --spacing-lg: 24px;
-      --spacing-md: 12px;
-      --spacing-sm: 8px;
-      --spacing-l: 4px;
-      --radius-lg: 20px;
-      --radius-md: 10px;
-      --radius-sm: 4px;
-      /* 
-        Preffered value calculated by formulae: 
-        slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)   
-        yAxisIntersaction = -minWidth * slope + minFontSize
-        prefferedValue = yAxisIntersection[rem] + (slope * 100)[vw]
-        https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
-      */
-      --min-width: 375px;
-      --max-width: 1440px;
-
-      --preffered-slope-1: 0.0019;
-      --preffered-yAxisIntersection-1: calc(-0.7125px + 22px);
-      --preffered-font-size-1: calc(var(--preffered-yAxisIntersection-1) + (var(--preffered-slope-1) * 100vw));
-      --text-preset-1: var(--font-bold) clamp(22px, var(--preffered-font-size-1), 24px)/150% 'Figtree', sans-serif;
-      
-      --preffered-slope-2: 0.0019;
-      --preffered-yAxisIntersection-2: calc(-0.7125px + 14px);
-      --preffered-font-size-2: calc(var(--preffered-yAxisIntersection-2) + (var(--preffered-slope-2) * 100vw));
-      --text-preset-2: var(--font-normal) clamp(14px, var(--preffered-font-size-2), 16px)/150% 'Figtree', sans-serif;
-     
-      --preffered-slope-3: 0.0019;
-      --preffered-yAxisIntersection-3: calc(-0.7125px + 12px);
-      --preffered-font-size-3: calc(var(--preffered-yAxisIntersection-3) + (var(--preffered-slope-3) * 100vw));
-      --text-preset-3: var(--font-normal) clamp(12px, var(--preffered-font-size-3), 14px)/150% 'Figtree', sans-serif;
-
-      --text-preset-3-bold: var(--font-bold) 14px/150% 'Figtree', sans-serif;
-      letter-spacing: 0;
-
-      --preffered-slope-cardWidth: 0.056;
-      --preffered-yAxisIntersection-cardWidth: calc(-21px + 324px);
-      --preffered-cardWidth: calc(var(--preffered-yAxisIntersection-cardWidth) + (var(--preffered-slope-cardWidth) * 100vw));
-      --cardwidth: clamp(324px, var(--preffered-cardWidth), 384px);
-    }
-
-    * {
-      margin: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      display: flex;
-      min-height: 100vh;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--color-yellow);
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--color-gray-950);
-      padding: 24px;
-      gap: var(--spacing-lg);
-      width: var(--cardwidth);
-      box-shadow: 8px 8px 0 0 var(--color-gray-950);
-      background-color: var(--color-white);
-    }
-
-    .card__image {
-      width: 100%;
-      border-radius: var(--radius-md);
-    }
-
-    .card__body {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-lg)
-    }
-
-    .card__main {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-md);
-      justify-content: flex-start;
-    }
-
-    .card__badge {
-      display: flex;
-      font: var(--text-preset-3-bold);
-      padding: 4px 12px 4px 12px;
-      border-radius: var(--radius-sm);
-      background-color: var(--color-yellow);
-      width: fit-content;
-    }
-    
-
-    .card__date {
-      font: var(--text-preset-3);
-    }
-
-    .card__header {
-      font: var(--text-preset-1);
-      text-decoration: none;
-      color: var(--color-gray-950);
-    }
-
-    .card__header:hover, .card__header:focus {
-      color: var(--color-yellow);
-    }
-
-    .card__description {
-      font: var(--text-preset-2);
-      color: var(--color-gray-500);
-    }
-
-    .card__footer {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-md);
-    }
-
-    .card__avatar {
-      max-width: 32px;
-      max-height: 32px;
-    }
-
-    .card__author-name {
-      font: var(--text-preset-3-bold)
-    }
-  </style>
 </head>
 <body>
   <main>
-    <figure class="card">
-      <img class="card__image" src="./assets/images/illustration-article.svg" alt="Card image with toggle button">
-      <figcaption class="card__body">
-        <div class="card__main">
-          <p class="card__badge">Learning</p>
-          <span class="card__date">Published 21 Dec 2023</span>
-          <a href="#" class="card__header">HTML & CSS foundations</a>
-          <p class="card__description">These languages are the backbone of every website, defining structure, content, and presentation.</p>    
-        </div>
-        <div class="card__footer">
-          <img class="card__avatar" src="./assets/images/image-avatar.webp" alt="">
-          <p class="card__author-name">Greg Hooper</p>
-        </div>
-      </figcaption>
-    </figure>
+    <article class="card">
+      <img class="card__image" src="./assets/images/illustration-article.svg" alt="Article preview image">
+      <header class="card__main">
+        <span class="card__badge">Learning</span>
+        <time class="card__date" datetime="2023-12-21">Published 21 Dec 2023</time>
+        <h2><a href="#" class="card__header">HTML & CSS foundations</a></h2>
+        <p class="card__description">These languages are the backbone of every website, defining structure, content, and presentation.</p>    
+      </header>
+      <footer class="card__footer">
+        <img class="card__avatar" src="./assets/images/image-avatar.webp" alt="Photo of Greg Hooper">
+        <p class="card__author-name">Greg Hooper</p>
+      </footer>
+    </article>
   </main>
 </body>
 </html>

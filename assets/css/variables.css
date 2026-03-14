@@ -1,0 +1,46 @@
+:root {
+    --color-yellow: hsl(47, 88%, 63%);
+    --color-white: hsl(47, 0%, 100%);
+    --color-gray-500: hsl(0, 0%, 42%);
+    --color-gray-950: hsl(0, 0%, 7%);
+    --font-normal: 500;
+    --font-bold: 800;
+    --spacing-lg: 24px;
+    --spacing-md: 12px;
+    --spacing-sm: 8px;
+    --spacing-l: 4px;
+    --radius-lg: 20px;
+    --radius-md: 10px;
+    --radius-sm: 4px;
+    /* 
+    preferred value calculated by formulae: 
+    slope = (maxFontSize - minFontSize) / (maxWidth - minWidth)   
+    yAxisIntersection = -minWidth * slope + minFontSize
+    preferredValue = yAxisIntersection[rem] + (slope * 100)[vw]
+    https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+    */
+    --min-width: 375px;
+    --max-width: 1440px;
+
+    --preferred-slope-1: 0.0019;
+    --preferred-yAxisIntersection-1: calc(-0.7125px + 22px);
+    --preferred-font-size-1: calc(var(--preferred-yAxisIntersection-1) + (var(--preferred-slope-1) * 100vw));
+    --text-preset-1: var(--font-bold) clamp(22px, var(--preferred-font-size-1), 24px)/150% 'Figtree', sans-serif;
+    
+    --preferred-slope-2: 0.0019;
+    --preferred-yAxisIntersection-2: calc(-0.7125px + 14px);
+    --preferred-font-size-2: calc(var(--preferred-yAxisIntersection-2) + (var(--preferred-slope-2) * 100vw));
+    --text-preset-2: var(--font-normal) clamp(14px, var(--preferred-font-size-2), 16px)/150% 'Figtree', sans-serif;
+    
+    --preferred-slope-3: 0.0019;
+    --preferred-yAxisIntersection-3: calc(-0.7125px + 12px);
+    --preferred-font-size-3: calc(var(--preferred-yAxisIntersection-3) + (var(--preferred-slope-3) * 100vw));
+    --text-preset-3: var(--font-normal) clamp(12px, var(--preferred-font-size-3), 14px)/150% 'Figtree', sans-serif;
+
+    --text-preset-3-bold: var(--font-bold) 14px/150% 'Figtree', sans-serif;
+
+    --preferred-slope-cardWidth: 0.056;
+    --preferred-yAxisIntersection-cardWidth: calc(-21px + 324px);
+    --preferred-cardWidth: calc(var(--preferred-yAxisIntersection-cardWidth) + (var(--preferred-slope-cardWidth) * 100vw));
+    --cardwidth: clamp(324px, var(--preferred-cardWidth), 384px);
+}
