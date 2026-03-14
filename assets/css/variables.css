@@ -42,5 +42,5 @@
     --preferred-slope-cardWidth: 0.056;
     --preferred-yAxisIntersection-cardWidth: calc(-21px + 324px);
     --preferred-cardWidth: calc(var(--preferred-yAxisIntersection-cardWidth) + (var(--preferred-slope-cardWidth) * 100vw));
-    --cardwidth: clamp(324px, var(--preferred-cardWidth), 384px);
+    --cardWidth: clamp(324px, var(--preferred-cardWidth), 384px);
 }
