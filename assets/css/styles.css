@@ -76,6 +76,15 @@ body {
     gap: var(--spacing-md);
 }
 
+.card__footer a {
+    text-decoration: none;
+    color: var(--color-gray-950);
+}
+
+.card__footer a:hover, a:focus-visible {
+    color: var(--color-yellow);
+}
+
 .card__avatar {
     max-width: 32px;
     max-height: 32px;
